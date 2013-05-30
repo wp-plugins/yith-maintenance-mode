@@ -461,7 +461,7 @@ if( !class_exists('YITH_Panel') ) {
                             </div>
 
                             <!-- Color -->
-                            <input type='text' id='<?php echo $id ?>-color' name='<?php echo $name ?>[color]' value='<?php echo $value['color'] ?>' class='medium-text code panel-colorpicker' data-default-color='<?php echo $value['color'] ?>' />
+                            <input type='text' id='<?php echo $id ?>-color' name='<?php echo $name ?>[color]' value='<?php echo $value['color'] ?>' class='medium-text code panel-colorpicker typography_color' data-default-color='<?php echo $field['std']['color'] ?>' />
 
                         </div>
                         <div class="clear"></div>

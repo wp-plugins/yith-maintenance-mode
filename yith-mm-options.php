@@ -255,7 +255,7 @@ $yith_maintenance_options = array(
                         'title' =>  __('Title', 'yit'),
                         'description' => __('The title displayed above the newsletter form.', 'yit'),
                         'type' => 'text',
-                        'std' => strtoupper( sprintf( __( 'STAY UPDATED WITH %s', 'yit' ), get_bloginfo('name') ) ),
+                        'std' => '',
                     )
                 )
             ),

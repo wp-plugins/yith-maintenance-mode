@@ -200,10 +200,9 @@ if( !function_exists('yit_typo_option_to_css') ) {
                 $variant = 700;
                 break;
         }
-        $attrs[] = "font-family: '{$family}';";
 
         yith_add_google_font( $family, $variant );
 
-        return implode( "\n", $attrs );
+        return implode( "\n", $attrs ) . "\n";
     }
 }

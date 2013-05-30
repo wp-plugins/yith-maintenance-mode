@@ -1,7 +1,7 @@
 === YITH Maintenance Mode ===
 
 Contributors: yithemes
-Tags: maintenance, construction, woocommerce, products, themes, yit
+Tags: maintenance, construction, maintenance page, wordpress maintenance mode, yit
 Requires at least: 3.5.1
 Tested up to: 3.5.1
 Stable tag: 1.0.0
@@ -30,17 +30,6 @@ YITH Maintenance Mode will add a new page under Appearance -> Maintenance Mode, 
 = Developer =
 
 Are you a developer? Want to customize the templates or the style of the plugin? Read on the [documentation](http://yithemes.com/docs-plugins/yith_maintenance_mode/) and discover how to do that.
-
-= Support =
-
-Hi there, we have good news here: all our plugins are released for free. Wow!
-Already knew it, right?! Great, but maybe you do not know that: if you're looking for how to install the plugins or how to use them within your Wordpress installations, which is the right way to ask support?
-That's the way:
-
-* Register on http://yithemes.com
-* Go to Support > Get Support
-
-Here we provide support, not on wordpress.org were, usually we do not read topics. It's better to follow us or write on our forum!
 
 == Installation ==
 

@@ -26,7 +26,11 @@ jQuery(document).ready(function($){
     });
 
     //color-picker
-    $('.panel-colorpicker').wpColorPicker();
+    $('.panel-colorpicker').wpColorPicker({
+        change: function(event, ui){
+            $('#'+event.target.id).parents('.typography_container').find('.font-preview > p').css('color', ui.color.toString());
+        }
+    });
 
     //typography
     $('.typography_container').yit_panel_typography();
@@ -110,7 +114,7 @@ jQuery(document).ready(function($){
                 //Set current value, before trigger change event
 
                 //Color
-                elements.preview.css( 'color', elements.color.next().val() );
+                elements.preview.css( 'color', elements.color.val() );
 
                 //Font size
                 var size = elements.size.val();

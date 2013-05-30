@@ -40,7 +40,8 @@
     <meta name="viewport" content="width=device-width" />
     <title><?php wp_title( '|', true, 'right' ); ?></title>
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <?php wp_head(); ?>
+    <link rel="Shortcut Icon" type="image/x-icon" href="<?php echo home_url(); ?>/favicon.ico" />
+    <?php //wp_head(); ?>
 
     <link rel="stylesheet" href="<?php echo yith_google_fonts_url() ?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo $this->stylesheet_url() ?>" type="text/css" />
@@ -112,6 +113,10 @@
 
             <?php if ( $newsletter['enabled'] ) : ?>
                 <div class="sep"></div>
+
+                <?php if ( $title ) : ?>
+                    <h1><?php echo $title ?></h1>
+                <?php endif ?>
 
                 <form method="<?php echo $newsletter['form_method'] ?>" action="<?php echo $newsletter['form_action'] ?>" class="newsletter">
                     <fieldset>

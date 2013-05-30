@@ -19,8 +19,10 @@ class Google_Font {
         $base_url = 'http://fonts.googleapis.com/css?family=';
         $fonts = array();
 
+        if ( empty( $this->google_fonts ) ) return;
+
         foreach ( $this->google_fonts as $font => $variants ) {
-            $fonts[] = $font . ':' . implode( ',', $variants );
+            $fonts[] = urlencode( $font . ':' . implode( ',', $variants ) );
         }
 
         return $base_url . implode( '|', $fonts );
@@ -36,7 +38,7 @@ class Google_Font {
         if ( ! is_array( $variants ) ) $variants = array( $variants );
 
         foreach ( $variants as $variant ) {
-            if ( ! isset( $this->google_fonts[$font] ) ) $this->google_fonts[$font] = array();
+            if ( ! isset( $this->google_fonts[$font] ) ) $this->google_fonts[$font] = array( 300, 400 );
             if ( ! in_array( $variant, $this->google_fonts[$font] ) ) $this->google_fonts[$font][] = $variant;
         }
     }
