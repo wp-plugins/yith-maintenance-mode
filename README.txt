@@ -1,4 +1,4 @@
-=== YITH Manitenance Mode ===
+=== YITH Maintenance Mode ===
 
 Contributors: yithemes
 Tags: maintenance, construction, woocommerce, products, themes, yit
