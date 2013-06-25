@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -32,6 +32,19 @@ $yith_maintenance_options = array(
                         'type' => 'checkboxes',
                         'options' => yit_wp_roles(),
                         'std' => array( 'administrator' )
+                    ),
+
+                    'yith_maintenance_http_status' => array(
+                        'title' => __('HTTP Status Code', 'yit'),
+                        'description' => __( "You can set to send the HTTP status code, to say the status of the page and can tell to Google that this page isn't ready yet and cause your site not to be listed until this plugin is disabled.", 'yit' ),
+                        'type' => 'select',
+                        'options' => array(
+                            200 => 'HTTP 200 - Ok',
+                            301 => 'HTTP 301 - Redirect',
+                            403 => 'HTTP 403 - Forbidden',
+                            503 => 'HTTP 503 - Service Unavailable',
+                        ),
+                        'std' => 200
                     ),
 
                     'yith_maintenance_message' => array(

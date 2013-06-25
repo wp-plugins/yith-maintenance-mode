@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.0
+ * @version 1.0.1
  */
 
     $background_role = array();

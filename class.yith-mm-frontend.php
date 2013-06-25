@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -97,6 +97,9 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
             $template_path = get_template_directory() . '/' . $this->template_file;
             $child_path    = get_stylesheet_directory() . '/' . $this->template_file;
 
+            // set HTTP status
+            http_response_code( apply_filters( 'yith_maintenance_http_status', $http_status ) );
+
             foreach ( array( 'child_path', 'template_path', 'plugin_path' ) as $var ) {
                 if ( file_exists( ${$var} ) ) {
                     include ${$var};
@@ -186,6 +189,7 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
          */
         protected function _vars() {
             $vars = array(
+                'http_status' => get_option( 'yith_maintenance_http_status', 200 ),
                 'background' => array(
                     'color'      => get_option('yith_maintenance_background_color'),
                     'image'      => get_option('yith_maintenance_background_image'),
