@@ -8,13 +8,12 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-YITH Maintenance Mode give you the ability to have a simple Maintenance Mode page for your website in under construction.
+YITH Maintenance Mode gives you the ability to have a simple Maintenance Mode page while your website is under construction or closed for maintenance.
 
 
 == Description ==
 
-If you're working on your website and would like to make it known to your visitors, install the plugin `YITH Maintenance Mode` to quickly set
-a lovely page customizable to show to your visitors to warn them of the ongoing maintenance.
+If you’re working on your website and would like to make it known to your visitors, install the plugin YITH Maintenance Mode to quickly set a lovely customizable page to let your visitors know the site is closed for maintenance.
 
 A working demo is available [here](http://plugins.yithemes.com/yith-maintenance-mode/). Full documentation is available [here](http://yithemes.com/docs-plugins/yith_maintenance_mode/).
 
