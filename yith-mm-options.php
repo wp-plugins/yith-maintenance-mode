@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.1
+ * @version 1.1.0
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -47,11 +47,25 @@ $yith_maintenance_options = array(
                         'std' => 200
                     ),
 
+                    'yith_maintenance_skin' => array(
+                        'title' => __('Choose a skin for the maintenance mode', 'yit'),
+                        'description' => __( "You can choose from 4 different skins to make your maintenance mode unique.", 'yit' ),
+                        'type' => 'skin',
+                        'path' => YITH_MAINTENANCE_URL . '/assets/images/',
+                        'options' => array(
+                            'skin1' => __('Skin 1', 'yit'),
+                            'skin2' => __('Skin 2', 'yit'),
+                            'skin3' => __('Skin 3', 'yit'),
+                            'skin4' => __('Skin 4', 'yit'),
+                        ),
+                        'std' => 'skin1'
+                    ),
+
                     'yith_maintenance_message' => array(
                         'title' => __('Message', 'yit'),
                         'description' => __( 'The message displayed. You can also use HTML code.', 'yit' ),
                         'type' => 'textarea',
-                        'std' => '<h3>' . __( 'OPS! WE ARE NOT READY YET!', 'yit' ) . '</h3>
+                        'std' => '<h3>' . __( 'OOPS! WE ARE NOT READY YET!', 'yit' ) . '</h3>
 <p>' . __( "Hello there! We are not ready yet, but why don't you leave your email address  and we'll let you know  as soon as we're in business!", 'yit' ) . '</p>'
                     ),
 
@@ -59,12 +73,13 @@ $yith_maintenance_options = array(
                         'title' => 'Custom style',
                         'description' => __( 'Insert here your custom CSS style.', 'yit' ),
                         'type' => 'textarea',
-                        'std' => ''
+                        'std' => '',
+                        'in_skin' => false
                     ),
 
                     'yith_maintenance_mascotte' => array(
                         'title' => 'Mascotte',
-                        'description' => __( 'If you want, you can set here a mascotte image to show above the main box, in the right side.', 'yit' ),
+                        'description' => __( 'If you want, you can set here a mascotte image to show above the main box, in the right side. This option is only available for skin 1.', 'yit' ),
                         'type' => 'upload',
                         'std' => YITH_MAINTENANCE_URL . 'assets/images/mascotte.png'
                     ),
@@ -106,7 +121,7 @@ $yith_maintenance_options = array(
                 'fields' => array(
                     'yith_maintenance_border_top' => array(
                         'title' =>  __('Border top color', 'yit'),
-                        'description' => __('Choose the color for the big border top of the main box.', 'yit'),
+                        'description' => __('Choose the color for the big border top of the main box. This option is only available for skin 1.', 'yit'),
                         'type' => 'colorpicker',
                         'std' => '#fcd358',
                     )
@@ -226,7 +241,8 @@ $yith_maintenance_options = array(
                         'title' =>  __('Enable Newsletter form', 'yit'),
                         'description' => __('Choose if you want to enable the newsletter form in the maintenance mode page.', 'yit'),
                         'type' => 'checkbox',
-                        'std' => true
+                        'std' => true,
+                        'in_skin' => false
                     ),
                     'yith_maintenance_newsletter_email_font' => array(
                         'title' =>  __('Newsletter Email Font', 'yit'),
@@ -239,6 +255,7 @@ $yith_maintenance_options = array(
                             'style' => 'bold',
                             'color' => '#a3a3a3',
                         ),
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_submit_font' => array(
                         'title' =>  __('Newsletter Submit Font', 'yit'),
@@ -251,24 +268,28 @@ $yith_maintenance_options = array(
                             'style' => 'extra-bold',
                             'color' => '#fff',
                         ),
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_submit_background' => array(
                         'title' =>  __('Newsletter submit background', 'yit'),
                         'description' => __('The submit button background.', 'yit'),
                         'type' => 'colorpicker',
                         'std' => '#617291',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_submit_background_hover' => array(
                         'title' =>  __('Newsletter submit hover background', 'yit'),
                         'description' => __('The submit button hover background.', 'yit'),
                         'type' => 'colorpicker',
                         'std' => '#3c5072',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_title' => array(
                         'title' =>  __('Title', 'yit'),
                         'description' => __('The title displayed above the newsletter form.', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     )
                 )
             ),
@@ -280,7 +301,8 @@ $yith_maintenance_options = array(
                         'title' =>  __('Action URL', 'yit'),
                         'description' => __('Set the action url of the form.', 'yit'),
                         'type' => 'text',
-                        'std' => ''
+                        'std' => '',
+                        'in_skin' => false
                     ),
                     'yith_maintenance_newsletter_method' => array(
                         'title' =>  __('Form method', 'yit'),
@@ -290,31 +312,36 @@ $yith_maintenance_options = array(
                             'POST' => 'POST',
                             'GET'  => 'GET',
                         ),
-                        'std' => 'POST'
+                        'std' => 'POST',
+                        'in_skin' => false
                     ),
                     'yith_maintenance_newsletter_email_label' => array(
                         'title' =>  __('"Email" field label', 'yit'),
                         'description' => __('The label for the email field', 'yit'),
                         'type' => 'text',
                         'std' => 'Enter your email address',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_email_name' => array(
                         'title' =>  __('"Email" field name', 'yit'),
                         'description' => __('The "name" attribute for the email field', 'yit'),
                         'type' => 'text',
                         'std' => 'email',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_submit_label' => array(
                         'title' =>  __('Submit button label', 'yit'),
                         'description' => __('The label for the submit button', 'yit'),
                         'type' => 'text',
-                        'std' => __( 'GET NOTIFY', 'yit' ),
+                        'std' => __( 'NOTIFY ME', 'yit' ),
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_newsletter_hidden_fields' => array(
                         'title' =>  __('Newsletter Hidden fields', 'yit'),
                         'description' => __('Set the hidden fields to include in the form. Use the form: field1=value1&field2=value2&field3=value3', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     )
                 )
             )
@@ -334,84 +361,98 @@ $yith_maintenance_options = array(
                         'description' => __('Set the URL of your facebook profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_twitter' => array(
                         'title' =>  __('Twitter', 'yit'),
                         'description' => __('Set the URL of your twitter profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_gplus' => array(
                         'title' =>  __('Google+', 'yit'),
                         'description' => __('Set the URL of your Google+ profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_youtube' => array(
                         'title' =>  __('Youtube', 'yit'),
                         'description' => __('Set the URL of your youtube profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_rss' => array(
                         'title' =>  __('RSS', 'yit'),
                         'description' => __('Set the URL of your RSS feed', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_skype' => array(
                         'title' =>  __('Skype', 'yit'),
                         'description' => __('Set the username of your skype account', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_email' => array(
                         'title' =>  __('Email', 'yit'),
                         'description' => __('Write here your email address', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_behance' => array(
                         'title' =>  __('Behance', 'yit'),
                         'description' => __('Set the URL of your Behance profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_dribble' => array(
                         'title' =>  __('Dribble', 'yit'),
                         'description' => __('Set the URL of your dribble profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_flickr' => array(
                         'title' =>  __('FlickR', 'yit'),
                         'description' => __('Set the URL of your Flickr profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_instagram' => array(
                         'title' =>  __('Instagram', 'yit'),
                         'description' => __('Set the URL of your instagram profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_pinterest' => array(
                         'title' =>  __('Pinterest', 'yit'),
                         'description' => __('Set the URL of your Pinterest profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_tumblr' => array(
                         'title' =>  __('Tumblr', 'yit'),
                         'description' => __('Set the URL of your Tumblr profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                     'yith_maintenance_socials_linkedin' => array(
                         'title' =>  __('LinkedIn', 'yit'),
                         'description' => __('Set the URL of your LinkedIn profile', 'yit'),
                         'type' => 'text',
                         'std' => '',
+                        'in_skin' => false,
                     ),
                 )
             )

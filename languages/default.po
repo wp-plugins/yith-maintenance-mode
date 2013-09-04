@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH Maintenance Mode\n"
-"POT-Creation-Date: 2013-07-29 18:28+0100\n"
-"PO-Revision-Date: 2013-07-29 18:28+0100\n"
+"POT-Creation-Date: 2013-09-04 17:36+0100\n"
+"PO-Revision-Date: 2013-09-04 17:36+0100\n"
 "Last-Translator: YIThemes <support@yithemes.com>\n"
 "Language-Team: Your Inspiration Themes <support@yithemes.com>\n"
 "Language: English\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Maintenance Mode"
 msgstr ""
 
-#: ../class.yith-mm-admin.php:140
+#: ../class.yith-mm-admin.php:143
 msgid "Settings"
 msgstr ""
 
-#: ../class.yith-mm-admin.php:141
+#: ../class.yith-mm-admin.php:144
 msgid "Docs"
 msgstr ""
 
@@ -74,512 +74,539 @@ msgid ""
 msgstr ""
 
 #: ../yith-mm-options.php:51
-msgid "Message"
+msgid "Choose a skin for the maintenance mode"
 msgstr ""
 
 #: ../yith-mm-options.php:52
+msgid ""
+"You can choose from 4 different skins to make your maintenance mode unique."
+msgstr ""
+
+#: ../yith-mm-options.php:56
+msgid "Skin 1"
+msgstr ""
+
+#: ../yith-mm-options.php:57
+msgid "Skin 2"
+msgstr ""
+
+#: ../yith-mm-options.php:58
+msgid "Skin 3"
+msgstr ""
+
+#: ../yith-mm-options.php:59
+msgid "Skin 4"
+msgstr ""
+
+#: ../yith-mm-options.php:65
+msgid "Message"
+msgstr ""
+
+#: ../yith-mm-options.php:66
 msgid "The message displayed. You can also use HTML code."
 msgstr ""
 
-#: ../yith-mm-options.php:54
+#: ../yith-mm-options.php:68
 msgid "OOPS! WE ARE NOT READY YET!"
 msgstr ""
 
-#: ../yith-mm-options.php:55
+#: ../yith-mm-options.php:69
 msgid ""
 "Hello there! We are not ready yet, but why don't you leave your email "
 "address  and we'll let you know  as soon as we're in business!"
 msgstr ""
 
-#: ../yith-mm-options.php:60
+#: ../yith-mm-options.php:74
 msgid "Insert here your custom CSS style."
 msgstr ""
 
-#: ../yith-mm-options.php:67
+#: ../yith-mm-options.php:82
 msgid ""
 "If you want, you can set here a mascotte image to show above the main box, "
-"in the right side."
+"in the right side. This option is only available for skin 1."
 msgstr ""
 
-#: ../yith-mm-options.php:74
+#: ../yith-mm-options.php:89
 msgid "Typography"
 msgstr ""
 
-#: ../yith-mm-options.php:78
+#: ../yith-mm-options.php:93
 msgid "Title font of message"
 msgstr ""
 
-#: ../yith-mm-options.php:79
+#: ../yith-mm-options.php:94
 msgid ""
 "Choose the font type, size and color for the titles inside the message text."
 msgstr ""
 
-#: ../yith-mm-options.php:90
+#: ../yith-mm-options.php:105
 msgid "Paragraph font of message"
 msgstr ""
 
-#: ../yith-mm-options.php:91
+#: ../yith-mm-options.php:106
 msgid ""
 "Choose the font type, size and color for the paragraphs inside the message "
 "text."
 msgstr ""
 
-#: ../yith-mm-options.php:104
+#: ../yith-mm-options.php:119
 msgid "Colors"
 msgstr ""
 
-#: ../yith-mm-options.php:108
+#: ../yith-mm-options.php:123
 msgid "Border top color"
 msgstr ""
 
-#: ../yith-mm-options.php:109
-msgid "Choose the color for the big border top of the main box."
+#: ../yith-mm-options.php:124
+msgid ""
+"Choose the color for the big border top of the main box. This option is only "
+"available for skin 1."
 msgstr ""
 
-#: ../yith-mm-options.php:120
+#: ../yith-mm-options.php:135
 msgid "Background"
 msgstr ""
 
-#: ../yith-mm-options.php:123
+#: ../yith-mm-options.php:138
 msgid "Background Settings"
 msgstr ""
 
-#: ../yith-mm-options.php:124
+#: ../yith-mm-options.php:139
 msgid "Customize the background of the page"
 msgstr ""
 
-#: ../yith-mm-options.php:127
+#: ../yith-mm-options.php:142
 msgid "Background image"
 msgstr ""
 
-#: ../yith-mm-options.php:128
+#: ../yith-mm-options.php:143
 msgid "Upload or choose from your media library the background image"
 msgstr ""
 
-#: ../yith-mm-options.php:133
+#: ../yith-mm-options.php:148
 msgid "Background Color"
 msgstr ""
 
-#: ../yith-mm-options.php:134
+#: ../yith-mm-options.php:149
 msgid "Choose a background color"
 msgstr ""
 
-#: ../yith-mm-options.php:139
+#: ../yith-mm-options.php:154
 msgid "Background Repeat"
 msgstr ""
 
-#: ../yith-mm-options.php:140
+#: ../yith-mm-options.php:155
 msgid "Select the repeat mode for the background image."
 msgstr ""
 
-#: ../yith-mm-options.php:144
+#: ../yith-mm-options.php:159
 msgid "Repeat"
 msgstr ""
 
-#: ../yith-mm-options.php:145
+#: ../yith-mm-options.php:160
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: ../yith-mm-options.php:146
+#: ../yith-mm-options.php:161
 msgid "Repeat Vertically"
 msgstr ""
 
-#: ../yith-mm-options.php:147
+#: ../yith-mm-options.php:162
 msgid "No Repeat"
 msgstr ""
 
-#: ../yith-mm-options.php:151
+#: ../yith-mm-options.php:166
 msgid "Background Position"
 msgstr ""
 
-#: ../yith-mm-options.php:152
+#: ../yith-mm-options.php:167
 msgid "Select the position for the background image."
 msgstr ""
 
-#: ../yith-mm-options.php:155
+#: ../yith-mm-options.php:170
 msgid "Center"
 msgstr ""
 
-#: ../yith-mm-options.php:156
+#: ../yith-mm-options.php:171
 msgid "Top left"
 msgstr ""
 
-#: ../yith-mm-options.php:157
+#: ../yith-mm-options.php:172
 msgid "Top center"
 msgstr ""
 
-#: ../yith-mm-options.php:158
+#: ../yith-mm-options.php:173
 msgid "Top right"
 msgstr ""
 
-#: ../yith-mm-options.php:159
+#: ../yith-mm-options.php:174
 msgid "Bottom left"
 msgstr ""
 
-#: ../yith-mm-options.php:160
+#: ../yith-mm-options.php:175
 msgid "Bottom center"
 msgstr ""
 
-#: ../yith-mm-options.php:161
+#: ../yith-mm-options.php:176
 msgid "Bottom right"
 msgstr ""
 
-#: ../yith-mm-options.php:166
+#: ../yith-mm-options.php:181
 msgid "Background Attachment"
 msgstr ""
 
-#: ../yith-mm-options.php:167
+#: ../yith-mm-options.php:182
 msgid "Select the attachment for the background image."
 msgstr ""
 
-#: ../yith-mm-options.php:170
+#: ../yith-mm-options.php:185
 msgid "Scroll"
 msgstr ""
 
-#: ../yith-mm-options.php:171
+#: ../yith-mm-options.php:186
 msgid "Fixed"
 msgstr ""
 
-#: ../yith-mm-options.php:182
+#: ../yith-mm-options.php:197
 msgid "Logo"
 msgstr ""
 
-#: ../yith-mm-options.php:185
+#: ../yith-mm-options.php:200
 msgid "Logo Settings"
 msgstr ""
 
-#: ../yith-mm-options.php:186
+#: ../yith-mm-options.php:201
 msgid "Customize the logo"
 msgstr ""
 
-#: ../yith-mm-options.php:189
+#: ../yith-mm-options.php:204
 msgid "Logo image"
 msgstr ""
 
-#: ../yith-mm-options.php:190
+#: ../yith-mm-options.php:205
 msgid "Upload or choose from your media library the logo image"
 msgstr ""
 
-#: ../yith-mm-options.php:195
+#: ../yith-mm-options.php:210
 msgid "Logo tagline"
 msgstr ""
 
-#: ../yith-mm-options.php:196
+#: ../yith-mm-options.php:211
 msgid "Set the tagline to show below the logo image"
 msgstr ""
 
-#: ../yith-mm-options.php:201
+#: ../yith-mm-options.php:216
 msgid "Logo tagline font"
 msgstr ""
 
-#: ../yith-mm-options.php:202
+#: ../yith-mm-options.php:217
 msgid "Choose the font type, size and color for the tagline text."
 msgstr ""
 
-#: ../yith-mm-options.php:219 ../yith-mm-options.php:222
+#: ../yith-mm-options.php:234 ../yith-mm-options.php:237
 msgid "Newsletter"
 msgstr ""
 
-#: ../yith-mm-options.php:223
+#: ../yith-mm-options.php:238
 msgid "Add a newsletter form in your maintenance mode page."
 msgstr ""
 
-#: ../yith-mm-options.php:226
+#: ../yith-mm-options.php:241
 msgid "Enable Newsletter form"
 msgstr ""
 
-#: ../yith-mm-options.php:227
+#: ../yith-mm-options.php:242
 msgid ""
 "Choose if you want to enable the newsletter form in the maintenance mode "
 "page."
 msgstr ""
 
-#: ../yith-mm-options.php:232
+#: ../yith-mm-options.php:248
 msgid "Newsletter Email Font"
 msgstr ""
 
-#: ../yith-mm-options.php:233
+#: ../yith-mm-options.php:249
 msgid "Choose the font type, size and color for the email input field."
 msgstr ""
 
-#: ../yith-mm-options.php:244
+#: ../yith-mm-options.php:261
 msgid "Newsletter Submit Font"
 msgstr ""
 
-#: ../yith-mm-options.php:245
+#: ../yith-mm-options.php:262
 msgid "Choose the font type, size and color for the email submit."
 msgstr ""
 
-#: ../yith-mm-options.php:256
+#: ../yith-mm-options.php:274
 msgid "Newsletter submit background"
 msgstr ""
 
-#: ../yith-mm-options.php:257
+#: ../yith-mm-options.php:275
 msgid "The submit button background."
 msgstr ""
 
-#: ../yith-mm-options.php:262
+#: ../yith-mm-options.php:281
 msgid "Newsletter submit hover background"
 msgstr ""
 
-#: ../yith-mm-options.php:263
+#: ../yith-mm-options.php:282
 msgid "The submit button hover background."
 msgstr ""
 
-#: ../yith-mm-options.php:268
+#: ../yith-mm-options.php:288
 msgid "Title"
 msgstr ""
 
-#: ../yith-mm-options.php:269
+#: ../yith-mm-options.php:289
 msgid "The title displayed above the newsletter form."
 msgstr ""
 
-#: ../yith-mm-options.php:276
+#: ../yith-mm-options.php:297
 msgid "Form configuration"
 msgstr ""
 
-#: ../yith-mm-options.php:277
+#: ../yith-mm-options.php:298
 msgid ""
 "Configure the form and each field, to integrate the newsletter features of "
 "an external service."
 msgstr ""
 
-#: ../yith-mm-options.php:280
+#: ../yith-mm-options.php:301
 msgid "Action URL"
 msgstr ""
 
-#: ../yith-mm-options.php:281
+#: ../yith-mm-options.php:302
 msgid "Set the action url of the form."
 msgstr ""
 
-#: ../yith-mm-options.php:286
+#: ../yith-mm-options.php:308
 msgid "Form method"
 msgstr ""
 
-#: ../yith-mm-options.php:287
+#: ../yith-mm-options.php:309
 msgid "Set the method for the form request."
 msgstr ""
 
-#: ../yith-mm-options.php:296
+#: ../yith-mm-options.php:319
 msgid "\"Email\" field label"
 msgstr ""
 
-#: ../yith-mm-options.php:297
+#: ../yith-mm-options.php:320
 msgid "The label for the email field"
 msgstr ""
 
-#: ../yith-mm-options.php:302
+#: ../yith-mm-options.php:326
 msgid "\"Email\" field name"
 msgstr ""
 
-#: ../yith-mm-options.php:303
+#: ../yith-mm-options.php:327
 msgid "The \"name\" attribute for the email field"
 msgstr ""
 
-#: ../yith-mm-options.php:308
+#: ../yith-mm-options.php:333
 msgid "Submit button label"
 msgstr ""
 
-#: ../yith-mm-options.php:309
+#: ../yith-mm-options.php:334
 msgid "The label for the submit button"
 msgstr ""
 
-#: ../yith-mm-options.php:311
+#: ../yith-mm-options.php:336
 msgid "NOTIFY ME"
 msgstr ""
 
-#: ../yith-mm-options.php:314
+#: ../yith-mm-options.php:340
 msgid "Newsletter Hidden fields"
 msgstr ""
 
-#: ../yith-mm-options.php:315
+#: ../yith-mm-options.php:341
 msgid ""
 "Set the hidden fields to include in the form. Use the form: "
 "field1=value1&field2=value2&field3=value3"
 msgstr ""
 
-#: ../yith-mm-options.php:326
+#: ../yith-mm-options.php:353
 msgid "Socials"
 msgstr ""
 
-#: ../yith-mm-options.php:329
+#: ../yith-mm-options.php:356
 msgid "Set the socials"
 msgstr ""
 
-#: ../yith-mm-options.php:330
+#: ../yith-mm-options.php:357
 msgid ""
 "You can set here the url of your social accounts (you can leave empty if you "
 "don't want to show the social icon)"
 msgstr ""
 
-#: ../yith-mm-options.php:333
+#: ../yith-mm-options.php:360
 msgid "Facebook"
 msgstr ""
 
-#: ../yith-mm-options.php:334
+#: ../yith-mm-options.php:361
 msgid "Set the URL of your facebook profile"
 msgstr ""
 
-#: ../yith-mm-options.php:339
+#: ../yith-mm-options.php:367
 msgid "Twitter"
 msgstr ""
 
-#: ../yith-mm-options.php:340
+#: ../yith-mm-options.php:368
 msgid "Set the URL of your twitter profile"
 msgstr ""
 
-#: ../yith-mm-options.php:345
+#: ../yith-mm-options.php:374
 msgid "Google+"
 msgstr ""
 
-#: ../yith-mm-options.php:346
+#: ../yith-mm-options.php:375
 msgid "Set the URL of your Google+ profile"
 msgstr ""
 
-#: ../yith-mm-options.php:351
+#: ../yith-mm-options.php:381
 msgid "Youtube"
 msgstr ""
 
-#: ../yith-mm-options.php:352
+#: ../yith-mm-options.php:382
 msgid "Set the URL of your youtube profile"
 msgstr ""
 
-#: ../yith-mm-options.php:357
+#: ../yith-mm-options.php:388
 msgid "RSS"
 msgstr ""
 
-#: ../yith-mm-options.php:358
+#: ../yith-mm-options.php:389
 msgid "Set the URL of your RSS feed"
 msgstr ""
 
-#: ../yith-mm-options.php:363
+#: ../yith-mm-options.php:395
 msgid "Skype"
 msgstr ""
 
-#: ../yith-mm-options.php:364
+#: ../yith-mm-options.php:396
 msgid "Set the username of your skype account"
 msgstr ""
 
-#: ../yith-mm-options.php:369
+#: ../yith-mm-options.php:402
 msgid "Email"
 msgstr ""
 
-#: ../yith-mm-options.php:370
+#: ../yith-mm-options.php:403
 msgid "Write here your email address"
 msgstr ""
 
-#: ../yith-mm-options.php:375
+#: ../yith-mm-options.php:409
 msgid "Behance"
 msgstr ""
 
-#: ../yith-mm-options.php:376
+#: ../yith-mm-options.php:410
 msgid "Set the URL of your Behance profile"
 msgstr ""
 
-#: ../yith-mm-options.php:381
+#: ../yith-mm-options.php:416
 msgid "Dribble"
 msgstr ""
 
-#: ../yith-mm-options.php:382
+#: ../yith-mm-options.php:417
 msgid "Set the URL of your dribble profile"
 msgstr ""
 
-#: ../yith-mm-options.php:387
+#: ../yith-mm-options.php:423
 msgid "FlickR"
 msgstr ""
 
-#: ../yith-mm-options.php:388
+#: ../yith-mm-options.php:424
 msgid "Set the URL of your Flickr profile"
 msgstr ""
 
-#: ../yith-mm-options.php:393
+#: ../yith-mm-options.php:430
 msgid "Instagram"
 msgstr ""
 
-#: ../yith-mm-options.php:394
+#: ../yith-mm-options.php:431
 msgid "Set the URL of your instagram profile"
 msgstr ""
 
-#: ../yith-mm-options.php:399
+#: ../yith-mm-options.php:437
 msgid "Pinterest"
 msgstr ""
 
-#: ../yith-mm-options.php:400
+#: ../yith-mm-options.php:438
 msgid "Set the URL of your Pinterest profile"
 msgstr ""
 
-#: ../yith-mm-options.php:405
+#: ../yith-mm-options.php:444
 msgid "Tumblr"
 msgstr ""
 
-#: ../yith-mm-options.php:406
+#: ../yith-mm-options.php:445
 msgid "Set the URL of your Tumblr profile"
 msgstr ""
 
-#: ../yith-mm-options.php:411
+#: ../yith-mm-options.php:451
 msgid "LinkedIn"
 msgstr ""
 
-#: ../yith-mm-options.php:412
+#: ../yith-mm-options.php:452
 msgid "Set the URL of your LinkedIn profile"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:396
+#: ../yit-common/yith-panel.php:406
 msgid "Select a date"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:397
+#: ../yit-common/yith-panel.php:407
 msgid "Hours"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:398 ../yit-common/yith-panel.php:399
+#: ../yit-common/yith-panel.php:408 ../yit-common/yith-panel.php:409
 msgid "Minutes"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:407
+#: ../yit-common/yith-panel.php:417
 msgid "Upload"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:434
+#: ../yit-common/yith-panel.php:444
 msgid "px"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:435
+#: ../yit-common/yith-panel.php:445
 msgid "em"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:436
+#: ../yit-common/yith-panel.php:446
 msgid "pt"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:437
+#: ../yit-common/yith-panel.php:447
 msgid "rem"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:447
+#: ../yit-common/yith-panel.php:457
 msgid "Select a font family"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:455
+#: ../yit-common/yith-panel.php:465
 msgid "Regular"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:456
+#: ../yit-common/yith-panel.php:466
 msgid "Bold"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:457
+#: ../yit-common/yith-panel.php:467
 msgid "Extra bold"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:458
+#: ../yit-common/yith-panel.php:468
 msgid "Italic"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:459
+#: ../yit-common/yith-panel.php:469
 msgid "Italic bold"
 msgstr ""
 
-#: ../yit-common/yith-panel.php:471
+#: ../yit-common/yith-panel.php:481
 msgid "Click to preview"
 msgstr ""

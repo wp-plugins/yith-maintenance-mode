@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.1
+ * @version 1.1.0
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -82,6 +82,9 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
 
             add_action( 'init', array( $this, 'init_panel' ) );
             add_action( 'init', array( $this, 'default_options' ) );
+            add_action( 'init', array( $this, 'create_skin' ) );
+            add_action( 'init', array( $this, 'load_skin' ) );
+            add_action( 'update_option_yith_maintenance_skin', array( $this, 'update_option' ), 10, 2 );
             add_filter( 'plugin_action_links_' . plugin_basename( dirname(__FILE__) . '/init.php' ), array( $this, 'action_links' ) );
 
             return $this;
@@ -142,6 +145,130 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
             );
 
             return array_merge( $plugin_links, $links );
+        }
+
+        /**
+         * Create a new skin
+         *
+         * @access public
+         * @return void
+         */
+        public function create_skin() {
+            if( isset( $_GET['yith_maintenance_new_skin'] ) ) {
+                $options = yit_get_options_from_prefix('yith_maintenance_');
+                array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_export' );
+
+                $skin = get_option('yith_maintenance_skin');
+
+                file_put_contents( YITH_MAINTENANCE_DIR . '/assets/skins/' . $skin , base64_encode( serialize($options) ) );
+            }
+        }
+
+        /**
+         * Load skin settings
+         *
+         * @access public
+         * @return void
+         */
+        public function load_skin() {
+            global $yith_maintenance_options;
+            $skin = get_option('yith_maintenance_skin') ? get_option('yith_maintenance_skin') : 'skin1';
+
+            if( isset( $_GET['yith_maintenance_load_skin'] ) && file_exists( YITH_MAINTENANCE_DIR . 'assets/skins/' . $skin ) ) {
+                $options = unserialize( base64_decode( file_get_contents( YITH_MAINTENANCE_DIR . 'assets/skins/' . $skin ) ) );
+                array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_import' );
+
+                foreach ( $yith_maintenance_options as $tab => $tab_options ) {
+                    foreach ( $tab_options['sections'] as $section => $section_options ) {
+                        foreach ( $section_options['fields'] as $id => $args ) {
+                            if ( isset( $args['in_skin'] ) && ! $args['in_skin'] ) {
+                                unset( $options[$id] );
+                            }
+                        }
+                    }
+                }
+
+                print_r($options);
+                die();
+
+                foreach( $options as $key => $value ) {
+                    update_option($key, $value);
+                }
+            }
+        }
+
+        /**
+         * Change the skin
+         *
+         * @access public
+         * @return void
+         */
+        public function update_option( $oldvalue, $newvalue ) {
+            global $yith_maintenance_options;
+            if( $oldvalue != $newvalue ) {
+                $options = unserialize( base64_decode( file_get_contents( YITH_MAINTENANCE_DIR . 'assets/skins/' . $newvalue ) ) );
+                array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_import' );
+
+                foreach ( $yith_maintenance_options as $tab => $tab_options ) {
+                    foreach ( $tab_options['sections'] as $section => $section_options ) {
+                        foreach ( $section_options['fields'] as $id => $args ) {
+                            if ( isset( $args['in_skin'] ) && ! $args['in_skin'] ) {
+                                unset( $options[$id] );
+                            }
+                        }
+                    }
+                }
+
+                foreach( $options as $key => $value ) {
+                    if( $key == 'yith_maintenance_skin' ) {
+                        update_option($key, $newvalue);
+                    } else {
+                        update_option($key, $value);
+                    }
+                }
+
+                wp_redirect( $_SERVER['HTTP_REFERER'] );
+                exit();
+            }
+        }
+
+        public function convert_url( &$item, $key, $type ) {
+            if ( ! isset( $this->importer_uploads_url ) ) {
+                $upload_dir = wp_upload_dir();
+                $this->importer_uploads_url = $upload_dir['baseurl'];
+            }
+
+            if ( ! isset( $this->importer_site_url ) ) {
+                $this->importer_site_url = site_url();
+            }
+
+            $item = maybe_unserialize( $item );
+
+            switch ( $type ) {
+
+                case 'in_import' :
+                    if ( is_array( $item ) ) {
+                        array_walk_recursive( $item, array( $this, 'convert_url' ), $type );
+                        $item = serialize($item);
+                    } else {
+                        $item = str_replace( '%uploadsurl%', $this->importer_uploads_url, $item );
+                        $item = str_replace( '%siteurl%', $this->importer_site_url, $item );
+                    }
+                    break;
+
+                case 'in_export' :
+                    if ( is_array( $item ) ) {
+                        array_walk_recursive( $item, array( $this, 'convert_url' ), $type );
+                        $item = serialize($item);
+                    } else {
+                        $parsed_site_url = @parse_url( $this->importer_site_url );
+                        $item = str_replace( $this->importer_uploads_url, '%uploadsurl%', $item );
+                        $item = str_replace( str_replace( $parsed_site_url['scheme'] . '://' . $parsed_site_url['host'], '', $this->importer_uploads_url ), '%uploadsurl%', $item );
+                        $item = str_replace( $this->importer_site_url, '%siteurl%', $item );
+                    }
+                    break;
+            }
+
         }
     }
 }

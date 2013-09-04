@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.0.1
+ * @version 1.1.0
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -93,7 +93,8 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
 
             extract( $this->_vars() );
 
-            $plugin_path   = plugin_dir_path(__FILE__) . 'templates/' . $this->template_file;
+            $skin_template_file = $this->getSkin() != 'skin1' ? basename($this->template_file, ".php") . '-' . $this->getSkin() . '.php' : $this->template_file;
+            $plugin_path   = plugin_dir_path(__FILE__) . 'templates/' . $skin_template_file;
             $template_path = get_template_directory() . '/' . $this->template_file;
             $child_path    = get_stylesheet_directory() . '/' . $this->template_file;
 
@@ -114,7 +115,10 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
          */
         public function stylesheet_url() {
             $filename = 'maintenance.css';
-            $plugin_path   = array( 'path' => plugin_dir_path(__FILE__) . 'assets/css/style.css', 'url' => YITH_MAINTENANCE_URL . 'assets/css/style.css' );
+
+            $skin_template_file = $this->getSkin() != 'skin1' ? 'style-' . $this->getSkin() . '.css' : 'style.css';
+
+            $plugin_path   = array( 'path' => plugin_dir_path(__FILE__) . 'assets/css/' . $skin_template_file, 'url' => YITH_MAINTENANCE_URL . 'assets/css/' . $skin_template_file );
             $template_path = array( 'path' => get_template_directory() . '/' . $filename,         'url' => get_template_directory_uri() . '/' . $filename );
             $child_path    = array( 'path' => get_stylesheet_directory() . '/' . $filename,       'url' => get_stylesheet_directory_uri() . '/' . $filename );
 
@@ -123,6 +127,13 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
                     return ${$var}['url'];
                 }
             }
+        }
+
+        /**
+         * Return the skin selected
+         */
+        public function getSkin() {
+            return get_option('yith_maintenance_skin') ? get_option('yith_maintenance_skin') : 'skin1';
         }
 
 
@@ -243,8 +254,6 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
                     'tumblr'    => get_option('yith_maintenance_socials_tumblr'),
                 )
             );
-
-
 
             return $vars;
         }
