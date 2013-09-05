@@ -67,7 +67,7 @@ No, you can deactive the maintenance mode page even if the plugin is active.
 
 = 1.1.0 =
 
-* Added: new 4 skins
+* Added: 4 new skins
 * Fixed: button preview for the typography options, when italian language is active.
 
 = 1.0.2 =
