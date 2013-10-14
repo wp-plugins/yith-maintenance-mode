@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: maintenance, construction, maintenance page, wordpress maintenance mode, yit
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,8 +15,11 @@ YITH Maintenance Mode gives you the ability to have a simple Maintenance Mode pa
 
 If you're working on your website and would like to make it known to your visitors, install the plugin YITH Maintenance Mode to quickly set a lovely customizable page to let your visitors know the site is closed for maintenance.
 
-A working demo is available [here](http://plugins.yithemes.com/yith-maintenance-mode/). Full documentation is available [here](http://yithemes.com/docs-plugins/yith_maintenance_mode/).
+**A working demo is available [here](http://plugins.yithemes.com/yith-maintenance-mode/).**
 
+Full documentation is available [here](http://yithemes.com/docs-plugins/yith_maintenance_mode/).
+
+This plugin is 100% compatible with [WPML](http://wpml.org/?aid=24889&affiliate_key=Qn1wDeBNTcZV)
 
 = Installation =
 
@@ -64,6 +67,11 @@ No, you can deactive the maintenance mode page even if the plugin is active.
 5. General settings
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Added: WPML support
+* Fixed minor bugs
 
 = 1.1.0 =
 
