@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -93,10 +93,13 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
 
             extract( $this->_vars() );
 
+            $theme_path = defined( 'YIT' ) ? YIT_THEME_TEMPLATES_PATH : get_template_directory();
+            $child_path = defined( 'YIT' ) ? str_replace( get_template_directory(), get_stylesheet_directory(), YIT_THEME_TEMPLATES_PATH ) : get_stylesheet_directory();
+
             $skin_template_file = $this->getSkin() != 'skin1' ? basename($this->template_file, ".php") . '-' . $this->getSkin() . '.php' : $this->template_file;
             $plugin_path   = plugin_dir_path(__FILE__) . 'templates/' . $skin_template_file;
-            $template_path = get_template_directory() . '/' . $this->template_file;
-            $child_path    = get_stylesheet_directory() . '/' . $this->template_file;
+            $template_path = $theme_path . '/maintenance/' . $skin_template_file;
+            $child_path    = $child_path . '/maintenance/' . $skin_template_file;
 
             // set HTTP status
             http_response_code( apply_filters( 'yith_maintenance_http_status', $http_status ) );
@@ -114,13 +117,19 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
          *
          */
         public function stylesheet_url() {
-            $filename = 'maintenance.css';
 
             $skin_template_file = $this->getSkin() != 'skin1' ? 'style-' . $this->getSkin() . '.css' : 'style.css';
 
+            $theme_path = defined( 'YIT' ) ? YIT_THEME_ASSETS_PATH . '/css' : get_template_directory();
+            $theme_url  = defined( 'YIT' ) ? YIT_THEME_ASSETS_URL  . '/css' : get_template_directory_uri();
+
+            $child_path = defined( 'YIT' ) ? str_replace( get_template_directory(), get_stylesheet_directory(), YIT_THEME_ASSETS_PATH ) . '/css' : get_template_directory();
+            $child_url  = defined( 'YIT' ) ? str_replace( get_template_directory_uri(), get_stylesheet_directory_uri(), YIT_THEME_ASSETS_URL )  . '/css' : get_template_directory_uri();
+
+
             $plugin_path   = array( 'path' => plugin_dir_path(__FILE__) . 'assets/css/' . $skin_template_file, 'url' => YITH_MAINTENANCE_URL . 'assets/css/' . $skin_template_file );
-            $template_path = array( 'path' => get_template_directory() . '/' . $filename,         'url' => get_template_directory_uri() . '/' . $filename );
-            $child_path    = array( 'path' => get_stylesheet_directory() . '/' . $filename,       'url' => get_stylesheet_directory_uri() . '/' . $filename );
+            $template_path = array( 'path' => $theme_path . '/maintenance/' . $skin_template_file,         'url' => $theme_url . '/maintenance/' . $skin_template_file );
+            $child_path    = array( 'path' => $child_path . '/maintenance/' . $skin_template_file,       'url' => $child_url . '/maintenance/' . $skin_template_file );
 
             foreach ( array( 'child_path', 'template_path', 'plugin_path' ) as $var ) {
                 if ( file_exists( ${$var}['path'] ) ) {

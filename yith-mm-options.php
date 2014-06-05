@@ -4,12 +4,13 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
 
 global $yith_maintenance_options;
+
 $yith_maintenance_options = array(
     //tab general
     'general' => array(
@@ -52,13 +53,13 @@ $yith_maintenance_options = array(
                         'description' => __( "You can choose from 4 different skins to make your maintenance mode unique.", 'yit' ),
                         'type' => 'skin',
                         'path' => YITH_MAINTENANCE_URL . '/assets/images/',
-                        'options' => array(
+                        'options' => apply_filters( 'yit_maintenance_mode_skin_options', array(
                             'skin1' => __('Skin 1', 'yit'),
                             'skin2' => __('Skin 2', 'yit'),
                             'skin3' => __('Skin 3', 'yit'),
                             'skin4' => __('Skin 4', 'yit'),
-                        ),
-                        'std' => 'skin1'
+                        ) ),
+                        'std' => apply_filters( 'yit_maintenance_mode_skin_std', 'skin1' )
                     ),
 
                     'yith_maintenance_message' => array(
@@ -242,7 +243,7 @@ $yith_maintenance_options = array(
                         'description' => __('Choose if you want to enable the newsletter form in the maintenance mode page.', 'yit'),
                         'type' => 'checkbox',
                         'std' => true,
-                        'in_skin' => false
+
                     ),
                     'yith_maintenance_newsletter_email_font' => array(
                         'title' =>  __('Newsletter Email Font', 'yit'),
@@ -255,7 +256,7 @@ $yith_maintenance_options = array(
                             'style' => 'bold',
                             'color' => '#a3a3a3',
                         ),
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_submit_font' => array(
                         'title' =>  __('Newsletter Submit Font', 'yit'),
@@ -268,28 +269,28 @@ $yith_maintenance_options = array(
                             'style' => 'extra-bold',
                             'color' => '#fff',
                         ),
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_submit_background' => array(
                         'title' =>  __('Newsletter submit background', 'yit'),
                         'description' => __('The submit button background.', 'yit'),
                         'type' => 'colorpicker',
                         'std' => '#617291',
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_submit_background_hover' => array(
                         'title' =>  __('Newsletter submit hover background', 'yit'),
                         'description' => __('The submit button hover background.', 'yit'),
                         'type' => 'colorpicker',
                         'std' => '#3c5072',
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_title' => array(
                         'title' =>  __('Title', 'yit'),
                         'description' => __('The title displayed above the newsletter form.', 'yit'),
                         'type' => 'text',
                         'std' => '',
-                        'in_skin' => false,
+
                     )
                 )
             ),
@@ -320,28 +321,28 @@ $yith_maintenance_options = array(
                         'description' => __('The label for the email field', 'yit'),
                         'type' => 'text',
                         'std' => 'Enter your email address',
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_email_name' => array(
                         'title' =>  __('"Email" field name', 'yit'),
                         'description' => __('The "name" attribute for the email field', 'yit'),
                         'type' => 'text',
                         'std' => 'email',
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_submit_label' => array(
                         'title' =>  __('Submit button label', 'yit'),
                         'description' => __('The label for the submit button', 'yit'),
                         'type' => 'text',
                         'std' => __( 'NOTIFY ME', 'yit' ),
-                        'in_skin' => false,
+
                     ),
                     'yith_maintenance_newsletter_hidden_fields' => array(
                         'title' =>  __('Newsletter Hidden fields', 'yit'),
                         'description' => __('Set the hidden fields to include in the form. Use the form: field1=value1&field2=value2&field3=value3', 'yit'),
                         'type' => 'text',
                         'std' => '',
-                        'in_skin' => false,
+
                     )
                 )
             )

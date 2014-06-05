@@ -4,7 +4,7 @@
  *
  * @author Your Inspiration Themes
  * @package YITH Maintenance Mode
- * @version 1.1.1
+ * @version 1.1.2
  */
 
 if ( !defined( 'YITH_MAINTENANCE' ) ) { exit; } // Exit if accessed directly
@@ -68,7 +68,6 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
          * @since 1.0.0
          */
         public function __construct( $version ) {
-            global $yith_maintenance_options;
 
             $this->version = $version;
             $this->submenu = apply_filters( 'yith_maintenance_submenu', array(
@@ -78,8 +77,8 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
                 'administrator',
                 'yith-maintenance-mode'
             ) );
-            $this->options = apply_filters( 'yith_maintenance_options', $yith_maintenance_options );
 
+            add_action( 'init', array( $this, 'load_default_options' ) );
             add_action( 'init', array( $this, 'init_panel' ) );
             add_action( 'init', array( $this, 'default_options' ) );
             add_action( 'init', array( $this, 'create_skin' ) );
@@ -91,6 +90,18 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
         }
 
         /**
+         * Load options
+         *
+         * @return void
+         * @since 1.0.0
+         */
+        public function load_default_options(){
+            global $yith_maintenance_options;
+            $this->options = apply_filters( 'yith_maintenance_options', $yith_maintenance_options );
+        }
+
+
+        /**
          * Default options
          *
          * Sets up the default options used on the settings page
@@ -100,6 +111,8 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
          * @since 1.0.0
          */
         public function default_options() {
+            global $yith_maintenance_options;
+            $this->options = apply_filters( 'yith_maintenance_options', $yith_maintenance_options );
             foreach ($this->options as $tab) {
                 foreach( $tab['sections'] as $section ) {
                     foreach ( $section['fields'] as $id => $value ) {
@@ -160,7 +173,9 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
 
                 $skin = get_option('yith_maintenance_skin');
 
-                file_put_contents( YITH_MAINTENANCE_DIR . '/assets/skins/' . $skin , base64_encode( serialize($options) ) );
+                $plugin_path   = YITH_MAINTENANCE_DIR . 'assets/skins/';
+
+                file_put_contents( $plugin_path . $skin , base64_encode( serialize($options) ) );
             }
         }
 
@@ -174,25 +189,38 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
             global $yith_maintenance_options;
             $skin = get_option('yith_maintenance_skin') ? get_option('yith_maintenance_skin') : 'skin1';
 
-            if( isset( $_GET['yith_maintenance_load_skin'] ) && file_exists( YITH_MAINTENANCE_DIR . 'assets/skins/' . $skin ) ) {
-                $options = unserialize( base64_decode( file_get_contents( YITH_MAINTENANCE_DIR . 'assets/skins/' . $skin ) ) );
-                array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_import' );
+            if( isset( $_GET['yith_maintenance_load_skin'] ) ) {
+                $options = "";
+                $template_path = defined( 'YIT' ) ? YIT_THEME_ASSETS_PATH . '/maintenance/' : get_template_directory();
+                $child_path = defined( 'YIT' ) ? str_replace( get_template_directory(), get_stylesheet_directory(), YIT_THEME_ASSETS_PATH ) . '/maintenance/' : get_template_directory();
 
-                foreach ( $yith_maintenance_options as $tab => $tab_options ) {
-                    foreach ( $tab_options['sections'] as $section => $section_options ) {
-                        foreach ( $section_options['fields'] as $id => $args ) {
-                            if ( isset( $args['in_skin'] ) && ! $args['in_skin'] ) {
-                                unset( $options[$id] );
-                            }
-                        }
+                $plugin_path   = YITH_MAINTENANCE_DIR . 'assets/skins/';
+
+                foreach ( array( 'child_path', 'template_path', 'plugin_path' ) as $var ) {
+                    if ( file_exists( ${$var} ) ) {
+                        $options = unserialize( base64_decode( file_get_contents( ${$var} . $skin ) ) );
+                        break;
                     }
                 }
 
-                print_r($options);
-                die();
+                if( ! empty( $options ) ){
+                    array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_import' );
+                    foreach ( $yith_maintenance_options as $tab => $tab_options ) {
+                        foreach ( $tab_options['sections'] as $section => $section_options ) {
+                            foreach ( $section_options['fields'] as $id => $args ) {
+                                if ( isset( $args['in_skin'] ) && ! $args['in_skin'] ) {
+                                    unset( $options[$id] );
+                                }
+                            }
+                        }
+                    }
 
-                foreach( $options as $key => $value ) {
-                    update_option($key, $value);
+                    print_r($options);
+                    die();
+
+                    foreach( $options as $key => $value ) {
+                        update_option($key, $value);
+                    }
                 }
             }
         }
@@ -206,7 +234,18 @@ if( !class_exists( 'YITH_Maintenance_Admin' ) ) {
         public function update_option( $oldvalue, $newvalue ) {
             global $yith_maintenance_options;
             if( $oldvalue != $newvalue ) {
-                $options = unserialize( base64_decode( file_get_contents( YITH_MAINTENANCE_DIR . 'assets/skins/' . $newvalue ) ) );
+                $options = "";
+                $template_path = defined( 'YIT' ) ? YIT_THEME_ASSETS_PATH . '/maintenance/' : get_template_directory();
+                $child_path = defined( 'YIT' ) ? str_replace( get_template_directory(), get_stylesheet_directory(), YIT_THEME_ASSETS_PATH ) . '/maintenance/' : get_template_directory();
+
+                $plugin_path   = YITH_MAINTENANCE_DIR . 'assets/skins/';
+
+                foreach ( array( 'child_path', 'template_path', 'plugin_path' ) as $var ) {
+                    if ( file_exists( ${$var} . $newvalue ) ) {
+                        $options = unserialize( base64_decode( file_get_contents( ${$var} . $newvalue ) ) );
+                        break;
+                    }
+                }
                 array_walk_recursive( $options, array( $this, 'convert_url' ), 'in_import' );
 
                 foreach ( $yith_maintenance_options as $tab => $tab_options ) {
