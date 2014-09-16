@@ -3,7 +3,7 @@
  * Plugin Name: YITH Maintenance Mode
  * Plugin URI: http://yithemes.com/
  * Description: YITH Maintenance Mode allows you to add a maintenance page and customize it.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Your Inspiration Themes
  * Author URI: http://yithemes.com/
  * Text Domain: yit
@@ -32,9 +32,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly
 
 /* Include common functions */
 if( !defined('YITH_FUNCTIONS') ) {
-    require_once( 'yit-common/google_fonts.php' );
     require_once( 'yit-common/yit-functions.php' );
-    require_once( 'yit-common/yith-panel.php' );
 }
 
 load_plugin_textdomain( 'yit', false, dirname( plugin_basename( __FILE__ ) ). '/languages/' );
