@@ -3,7 +3,7 @@
  * Plugin Name: YITH Maintenance Mode
  * Plugin URI: http://yithemes.com/
  * Description: YITH Maintenance Mode allows you to add a maintenance page and customize it.
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author: Your Inspiration Themes
  * Author URI: http://yithemes.com/
  * Text Domain: yit

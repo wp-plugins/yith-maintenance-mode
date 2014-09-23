@@ -44,10 +44,7 @@ if( !class_exists( 'YITH_Maintenance_Frontend' ) ) {
             if ( ! yith_maintenance_is_enabled() ) return $this;
 
             // start frontend
-            if( !is_admin() ) {
-                add_action( 'init', array( $this, 'activate_maintenance'), 99 );
-            }
-
+            add_action( 'template_redirect', array( $this, 'activate_maintenance'), 99 );
             add_action( 'admin_bar_menu', array( &$this, 'admin_bar_menu' ), 1000 );
             add_action('wp_head', array( &$this, 'custom_style'));
             add_action('admin_head', array( &$this, 'custom_style'));

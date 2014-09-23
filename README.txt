@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: maintenance, construction, maintenance page, wordpress maintenance mode, yit
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,10 @@ No, you can deactive the maintenance mode page even if the plugin is active.
 5. General settings
 
 == Changelog ==
+
+= 1.1.4 =
+
+* Fixed: Bugs with W3 Total Cache
 
 = 1.1.3 =
 
